@@ -1,7 +1,7 @@
 pkgbase = vim-youcompleteme-git
 	pkgdesc = A code-completion engine for Vim
 	pkgver = r2769.604a2a02
-	pkgrel = 1
+	pkgrel = 2
 	url = https://ycm-core.github.io/YouCompleteMe/
 	install = install.sh
 	arch = x86_64
@@ -21,6 +21,7 @@ pkgbase = vim-youcompleteme-git
 	depends = clang
 	depends = python-watchdog
 	optdepends = rustup: rust language support
+	optdepends = rust-analyzer: rust language support
 	optdepends = omnisharp-roslyn-http-bin: C# language support
 	source = git+https://github.com/bottlepy/bottle.git
 	source = git+https://github.com/certifi/python-certifi.git
@@ -38,7 +39,7 @@ pkgbase = vim-youcompleteme-git
 	source = git+https://github.com/ycm-core/ycmd.git
 	source = git+https://github.com/ycm-core/YouCompleteMe.git
 	source = omnisharp.patch
-	source = rls.patch
+	source = rust-analyzer.patch
 	sha256sums = SKIP
 	sha256sums = SKIP
 	sha256sums = SKIP
@@ -55,7 +56,7 @@ pkgbase = vim-youcompleteme-git
 	sha256sums = SKIP
 	sha256sums = SKIP
 	sha256sums = af76c1efa5468815d40d636748fa3f7d36f0d81dafa41bffcbb86c2f27df04b2
-	sha256sums = e5c1bf356ca1c8034d64da11e8b41ceb48d1bb672d25d3b0d2ad12133438d344
+	sha256sums = a457dba29faffbbbd73c23624590f3915de27eb07d3db3bedb97b8d60fa2c23e
 
 pkgname = vim-youcompleteme-git
 

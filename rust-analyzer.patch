@@ -1,0 +1,21 @@
+diff --git a/ycmd/completers/rust/rust_completer.py b/ycmd/completers/rust/rust_completer.py
+index a5e5caaa..3c886467 100644
+--- a/ycmd/completers/rust/rust_completer.py
++++ b/ycmd/completers/rust/rust_completer.py
+@@ -25,13 +25,9 @@
+ 
+ 
+ LOGFILE_FORMAT = 'ra_'
+-RUST_ROOT = os.path.abspath(
+-  os.path.join( os.path.dirname( __file__ ), '..', '..', '..', 'third_party',
+-                'rust-analyzer' ) )
+-RA_BIN_DIR = os.path.join( RUST_ROOT, 'bin' )
+-RUSTC_EXECUTABLE = utils.FindExecutable( os.path.join( RA_BIN_DIR, 'rustc' ) )
+-RA_EXECUTABLE = utils.FindExecutable( os.path.join(
+-    RA_BIN_DIR, 'rust-analyzer' ) )
++RA_BIN_DIR = '/usr/bin'
++RUSTC_EXECUTABLE = os.path.join(RA_BIN_DIR, 'rustc')
++RA_EXECUTABLE = os.path.join(RA_BIN_DIR, 'rust-analyzer' )
+ RA_VERSION_REGEX = re.compile( r'^rust-analyzer (?P<version>.*)$' )
+ 
+ 

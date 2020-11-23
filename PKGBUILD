@@ -44,7 +44,7 @@ pkgver() {
 	cd "YouCompleteMe" || exit
 	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
-pkgrel=1
+pkgrel=2
 pkgdesc="A code-completion engine for Vim"
 arch=('x86_64')
 url='https://ycm-core.github.io/YouCompleteMe/'
@@ -52,6 +52,7 @@ license=('GPL3')
 groups=('vim-plugins')
 depends=('boost' 'boost-libs' 'python' 'nodejs' 'vim' 'clang' 'python-watchdog')
 optdepends=('rustup: rust language support'
+            'rust-analyzer: rust language support'
             'omnisharp-roslyn-http-bin: C# language support')
 makedepends=('cmake' 'git' 'make' 'curl')
 install="install.sh"
@@ -72,7 +73,7 @@ source=(
 	'git+https://github.com/ycm-core/ycmd.git'
 	'git+https://github.com/ycm-core/YouCompleteMe.git'
 	'omnisharp.patch'
-	'rls.patch')
+	'rust-analyzer.patch')
 
 sha256sums=('SKIP'
             'SKIP'
@@ -90,7 +91,7 @@ sha256sums=('SKIP'
             'SKIP'
             'SKIP'
             'af76c1efa5468815d40d636748fa3f7d36f0d81dafa41bffcbb86c2f27df04b2'
-            'e5c1bf356ca1c8034d64da11e8b41ceb48d1bb672d25d3b0d2ad12133438d344')
+            'a457dba29faffbbbd73c23624590f3915de27eb07d3db3bedb97b8d60fa2c23e')
 
 #=========================================================================================================#
 #                                     Applying PKBUILD Build Options                                      #
@@ -179,7 +180,7 @@ prepare() {
 
 	# Apply our patch to use existing rustup toolchains
 	cd "$srcdir/YouCompleteMe/third_party/ycmd/" || exit
-	patch -N -p1 -r - < ../../../rls.patch || echo "Patch already applied"
+	patch -N -p1 -r - < ../../../rust-analyzer.patch || echo "Patch already applied"
 
 	# Apply our patch to use AUR omnisharp-http-bin
 	cd "$srcdir/YouCompleteMe/third_party/ycmd/" || exit
